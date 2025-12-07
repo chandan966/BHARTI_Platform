@@ -1,0 +1,259 @@
+/* ================================
+   Black & White Theme – BHARTI Platform
+================================ */
+
+:root { 
+  --bg: #000000;
+  --panel: #0b0b0b;
+  --text: #ffffff;
+  --muted: #bfbfbf;
+  --accent: #ffffff;
+  --card-radius: 10px;
+  --gap: 16px;
+  --max-width: 1200px;
+  --shadow: 0 6px 18px rgba(0,0,0,0.6);
+  --glass: rgba(255,255,255,0.03);
+}
+
+/* ========= Reset Basics ========= */
+* { 
+  box-sizing: border-box; 
+}
+
+html, body, #root { 
+  height: 100%; 
+}
+
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.4;
+}
+
+/* ========= Container ========= */
+.app-container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 24px;
+}
+
+/* ========= Header ========= */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 18px 24px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.header .brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand .logo {
+  height: 44px;
+  width: 44px;
+  background: var(--glass);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  font-weight: 700;
+  color: var(--text);
+  box-shadow: var(--shadow);
+}
+
+.header .title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+
+.nav {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.nav a {
+  color: var(--muted);
+  padding: 8px 12px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.15s, background 0.15s, transform 0.08s;
+}
+
+.nav a.active,
+.nav a:hover {
+  color: var(--accent);
+  background: rgba(255,255,255,0.03);
+  transform: translateY(-1px);
+}
+
+/* ========= Search Bar ========= */
+.searchbar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,0.02);
+  padding: 8px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.03);
+}
+
+.searchbar input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--text);
+  padding: 8px 12px;
+  width: 260px;
+}
+
+/* ========= Banner ========= */
+.banner {
+  margin: 20px 0;
+  border-radius: var(--card-radius);
+  overflow: hidden;
+  background-position: center;
+  background-size: cover;
+  min-height: 260px;
+  display: flex;
+  align-items: flex-end;
+  box-shadow: var(--shadow);
+  position: relative;
+}
+
+.banner .overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    0deg,
+    rgba(0,0,0,0.75) 20%,
+    rgba(0,0,0,0.15) 60%
+  );
+}
+
+.banner .content {
+  position: relative;
+  padding: 20px;
+  z-index: 2;
+  color: var(--text);
+}
+
+.banner h2 {
+  margin: 0;
+  font-size: 1.8rem;
+  letter-spacing: 0.4px;
+}
+
+/* ========= Grid ========= */
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: var(--gap);
+  margin-top: 16px;
+}
+
+/* ========= Movie Card ========= */
+.movie-card {
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,0.01),
+    rgba(255,255,255,0.015)
+  );
+  border-radius: var(--card-radius);
+  padding: 12px;
+  overflow: hidden;
+  transition: transform 0.15s, box-shadow 0.15s;
+  border: 1px solid rgba(255,255,255,0.03);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.movie-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+}
+
+.movie-card img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* ========= Card Content ========= */
+.movie-card .title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0;
+}
+
+.movie-card .meta {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* ========= Quality Buttons ========= */
+.quality-row {
+  display: flex;
+  gap: 8px;
+  margin-top: auto;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 700;
+  background: rgba(255,255,255,0.025);
+  color: var(--text);
+  transition: transform 0.08s, background 0.12s;
+}
+
+.btn:hover { 
+  transform: translateY(-2px); 
+}
+
+.btn.primary {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+.btn.ghost {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.03);
+}
+
+/* ========= Footer ========= */
+.site-footer {
+  margin-top: 40px;
+  padding: 20px;
+  text-align: center;
+  color: var(--muted);
+  border-top: 1px solid rgba(255,255,255,0.03);
+}
+
+/* ========= Responsive ========= */
+@media (max-width: 700px) {
+  .searchbar input { width: 140px; }
+  .banner { min-height: 180px; }
+  .movie-card img { height: 180px; }
+}
